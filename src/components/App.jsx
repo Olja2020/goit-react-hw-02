@@ -13,8 +13,8 @@ export default function App() {
   const updateFeedback = (type) => {
     console.log(feedbackType); 
       console.log(type);
-      for (let key in feedbackType) {
-      switch (key) {
+      
+      switch (type) {
         case 'good':
           setFeedbackType({
             ...feedbackType,
@@ -38,7 +38,7 @@ export default function App() {
         default:
           console.log(100);
           break;
-      }}
+      }
            
   
  }
