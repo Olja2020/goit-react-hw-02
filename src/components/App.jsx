@@ -5,47 +5,25 @@ import Options from "./options/Options";
 import Description from "./description/Description";
 
 export default function App() {
-  const [feedbackType, setFeedbackType] = useState({
+  const [feedback, setFeedback] = useState({
     good: 0,
     neutral: 0,
     bad: 0,
   });
-  const updateFeedback = (type) => {
-          
-      switch (type) {
-        case 'good':
-          setFeedbackType({
-            ...feedbackType,
-           good: feedbackType.good + 1,
-          })
-          console.log(feedbackType.good);
-          break;
-        case 'neutral':
-          setFeedbackType({
-            ...feedbackType,
-           neutral: feedbackType.neutral + 1,
-          })
-          break;
-        case 'bad':
-          setFeedbackType({
-            ...feedbackType,
-           bad: feedbackType.bad + 1,
-          })
-          break;
-  
-        default:
-          break;
-      }
-           
-  
- }
+  const updateFeedback = (feedbackType) => {
+    setFeedback({
+            ...feedback,
+           [feedbackType]: feedback[feedbackType] + 1,
+          }) 
+      
+  }
 
  
     return (
       <>
         <Description/>
         <Options updateFeedback={updateFeedback} />
-        <Feedback feedbackType={feedbackType} />
+        <Feedback feedbackType={feedback} />
       </>
     );
   }
