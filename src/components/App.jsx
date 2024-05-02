@@ -11,9 +11,10 @@ export default function App() {
     bad: 0,
   });
   const updateFeedback = (type) => {
-         
+    console.log(feedbackType); 
       console.log(type);
-      switch (feedbackType) {
+      for (let key in feedbackType) {
+      switch (key) {
         case 'good':
           setFeedbackType({
             ...feedbackType,
@@ -37,10 +38,12 @@ export default function App() {
         default:
           console.log(100);
           break;
-      }
+      }}
            
   
-  }
+ }
+
+ 
     return (
       <>
         <Description/>
