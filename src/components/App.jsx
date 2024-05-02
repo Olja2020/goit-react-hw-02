@@ -23,7 +23,7 @@ export default function App() {
       <>
         <Description/>
         <Options updateFeedback={updateFeedback} />
-        <Feedback feedbackType={feedback} />
+        <Feedback feedback={feedback} />
       </>
     );
   }
