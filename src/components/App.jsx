@@ -10,9 +10,9 @@ export default function App() {
     neutral: 0,
     bad: 0,
   });
-  const updateFeedback = (feedbackType) => {
-    
-   
+  const updateFeedback = (type) => {
+         
+      console.log(type);
       switch (feedbackType) {
         case 'good':
           setFeedbackType({
@@ -35,6 +35,7 @@ export default function App() {
           break;
   
         default:
+          console.log(100);
           break;
       }
            
