@@ -11,12 +11,34 @@ export default function App() {
     bad: 0,
   });
   const updateFeedback = (feedbackType) => {
-    setFeedbackType({
-      ...feedbackType,
-      good: feedbackType.good + 1,
-      neutral: feedbackType.neutral + 1,
-      bag: feedbackType.bad + 1,
-    });
+    
+   
+      switch (feedbackType) {
+        case 'good':
+          setFeedbackType({
+            ...feedbackType,
+           good: feedbackType.good + 1,
+          })
+          
+          break;
+        case 'neutral':
+          setFeedbackType({
+            ...feedbackType,
+           neutral: feedbackType.neutral + 1,
+          })
+          break;
+        case 'bad':
+          setFeedbackType({
+            ...feedbackType,
+           bad: feedbackType.bad + 1,
+          })
+          break;
+  
+        default:
+          break;
+      }
+           
+  
   }
     return (
       <>

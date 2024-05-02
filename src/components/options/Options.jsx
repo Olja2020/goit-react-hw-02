@@ -1,15 +1,16 @@
+//import { useState } from 'react';
 import css from "./Options.module.css";
 
 function Options({ updateFeedback }) {
   return (
     <>
-      <button className={css.buttonOptions} onClick={()=>updateFeedback('good')}>
+      <button className={css.buttonOptions} onClick={updateFeedback}>
         Good
       </button>
-      <button className={css.buttonOptions} onClick={updateFeedback.neutral}>
+      <button className={css.buttonOptions} onClick={updateFeedback}>
         Neutral
       </button>
-      <button className={css.buttonOptions} onClick={updateFeedback.bad}>
+      <button className={css.buttonOptions} onClick={updateFeedback}>
         Bad
       </button>
       <button className={css.buttonOptions}>Reset</button>
