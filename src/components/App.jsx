@@ -5,23 +5,15 @@ import Options from "./options/Options";
 import Description from "./description/Description";
 import Notification from "./notification/Notification";
 export default function App() {
-  const [feedback, setFeedback] = useState(
-    {
-      good: 0,
-      neutral: 0,
-      bad: 0,
-    }
-    // => {
-    //     const savedObject = window.localStorage.getItem("saved-feedback");
+  const getFeedback = () => {
+    const savedObject = window.localStorage.getItem("saved-feedback");
 
-    //     if (savedObject !== null) {
-    //       return JSON.parse(savedObject);
-    //     }
+    return savedObject != null
+      ? JSON.parse(savedObject)
+      : { good: 0, neutral: 0, bad: 0 };
+  };
 
-    //     //return { good: 0, neutral: 0, bad: 0 };
-
-    //   }
-  );
+  const [feedback, setFeedback] = useState(getFeedback);
 
   const totalFeedback = feedback.good + feedback.neutral + feedback.bad;
   const positiveFeedback = Math.round((feedback.good / totalFeedback) * 100);
@@ -40,7 +32,7 @@ export default function App() {
   };
 
   useEffect(() => {
-    window.localStorage.setItem("saved-feedback", JSON.stringify({ feedback }));
+    window.localStorage.setItem("saved-feedback", JSON.stringify(feedback));
   }, [feedback]);
 
   return (
